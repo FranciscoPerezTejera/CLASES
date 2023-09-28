@@ -57,11 +57,13 @@ public class Factura implements Pagable {
     public void setPrecioPorProducto(double precioPorProducto) {
         this.precioPorProducto = precioPorProducto;
     }
+    
+    
 
     @Override
     public String toString() {
-        return "--> Código: " + codigo + "(" + Descripcion + ") \n" + "--> Cantidad: " + 
-                cantidad + "\n" + "--> Precio por producto: " + precioPorProducto + " €\n" + "--> Importe: ";
+        
+        return String.format("--> Codigo: ", codigo) + String.format("--> : ", codigo) + String.format("--> Codigo: ", codigo); 
     }
 
 }

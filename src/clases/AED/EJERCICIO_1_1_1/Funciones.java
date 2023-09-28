@@ -1,12 +1,10 @@
-package aed.EJERCICIO_1_1_1;
+package clases.aed.EJERCICIO_1_1_1;
 
 import clases.AED.EJERCICIO_1_1_1.NumeroIncorrectoException;
 import clases.AED.EJERCICIO_1_1_1.NombreIncorrectoException;
 import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Funciones {
 
@@ -40,7 +38,7 @@ public class Funciones {
         for (i = 0; i < clientes.length; i++) {
 
             sys = i + 1;
-            System.out.print("--> Introduce el nombre del cliente n " + sys + " : ");
+            System.out.printf("--> Introduce el nombre del cliente n º " + sys + " : ");
             clientes[i] = new Cliente(in.nextLine());
 
             try {
@@ -56,9 +54,9 @@ public class Funciones {
 
                 while (!es) {
 
-                    System.out.print(e.toString() + " " + sys + " Solo se admiten letras \n El formato es primer nombre y primer apellido (Las iniciales de cada palabra en mayúsculas). \n << Pulsa ENTER para continuar >>");
+                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten números ni símbolos. << Pusa ENTER para continuar >>");
                     in.nextLine();
-                    System.out.print("--> Introduce el nombre del cliente n " + sys + " (Primer nombre y Primer Apellido) : ");
+                    System.out.print("--> Introduce el nombre del cliente n º " + sys);
                     clientes[i] = new Cliente(in.nextLine());
                     es = funcion.esUnNOmbre(clientes[i].getNombre());
 
@@ -106,7 +104,33 @@ public class Funciones {
             sys = i + 1;
             System.out.print("--> Introduce el nombre del estudiante n " + sys + " : ");
             estudiantes[i] = new Estudiante(in.nextLine());
+            
+            try {
+
+                es = funcion.esUnNOmbre(estudiantes[i].getNombre());
+
+                if (es == false) {
+
+                    throw new NombreIncorrectoException();
+
+                }
+            } catch (NombreIncorrectoException e) {
+
+                while (!es) {
+
+                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten números ni símbolos. << Pusa ENTER para continuar >>");
+                    in.nextLine();
+                    System.out.print("--> Introduce el nombre del estudiante n º " + sys);
+                    estudiantes[i] = new Estudiante(in.nextLine());
+                    es = funcion.esUnNOmbre(estudiantes[i].getNombre());
+
+                }
+
+            }
+
+            es = true;
             sys = 0;
+            in.nextLine();
 
         }
         for (i = 0; i < empleados.length; i++) {
@@ -114,8 +138,33 @@ public class Funciones {
             sys = i + 1;
             System.out.print("--> Introduce el nombre del esmpleado n " + sys + " : ");
             empleados[i] = new Empleado(in.nextLine());
-            sys = 0;
+            
+             try {
 
+                es = funcion.esUnNOmbre(estudiantes[i].getNombre());
+
+                if (es == false) {
+
+                    throw new NombreIncorrectoException();
+
+                }
+            } catch (NombreIncorrectoException e) {
+
+                while (!es) {
+
+                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten números ni símbolos. << Pusa ENTER para continuar >>");
+                    in.nextLine();
+                    System.out.print("--> Introduce el nombre del empleado n º " + sys);
+                    empleados[i] = new Empleado(in.nextLine());
+                    es = funcion.esUnNOmbre(empleados[i].getNombre());
+
+                }
+
+            }
+
+            es = true;
+            sys = 0;
+            in.nextLine();
         }
 
         for (i = 0; i < facultativos.length; i++) {
@@ -123,7 +172,32 @@ public class Funciones {
             sys = i + 1;
             System.out.print("--> Introduce el nombre del facultativo n " + sys + " : ");
             facultativos[i] = new Facultativo(in.nextLine());
+             try {
+
+                es = funcion.esUnNOmbre(estudiantes[i].getNombre());
+
+                if (es == false) {
+
+                    throw new NombreIncorrectoException();
+
+                }
+            } catch (NombreIncorrectoException e) {
+
+                while (!es) {
+
+                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten números ni símbolos. << Pusa ENTER para continuar >>");
+                    in.nextLine();
+                    System.out.print("--> Introduce el nombre del facultativo n º " + sys);
+                    facultativos[i] = new Facultativo(in.nextLine());
+                    es = funcion.esUnNOmbre(facultativos[i].getNombre());
+
+                }
+
+            }
+
+            es = true;
             sys = 0;
+            in.nextLine();
 
         }
 

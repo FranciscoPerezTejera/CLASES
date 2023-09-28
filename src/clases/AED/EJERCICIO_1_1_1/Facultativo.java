@@ -1,4 +1,4 @@
-package aed.EJERCICIO_1_1_1;
+package clases.aed.EJERCICIO_1_1_1;
 
 
 public class Facultativo extends Empleado{
