@@ -32,7 +32,7 @@ public class EmpleadoAsalariado extends Empleado {
     
     @Override
     public String toString() {
-        return String.format("Empleado de Servicios [Nombre: %s, Apellido: %s, Seguridad Social: %s, Salario Semanal: %.2f Eur]",
+        return String.format("Empleado de Servicios [Nombre: %s, Apellido: %s, Seguridad Social: %s, Salario Semanal: %,.2f Eur]",
                 getNombre(), getApellido(), getSeguridadSocial(), salarioSemanal);
     }
 }

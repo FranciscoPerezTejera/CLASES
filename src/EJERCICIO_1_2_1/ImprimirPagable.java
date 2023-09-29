@@ -11,7 +11,7 @@ public class ImprimirPagable {
 
         Pagable[] objetos = new Pagable[6];
         int i = 0;
-        int cantidad;
+        int cantidad = 0;
         double precioPorProducto, salario;
         boolean es = true;
         boolean esUnNombre = true;
@@ -35,7 +35,7 @@ public class ImprimirPagable {
 
                 while (!es) {
 
-                    System.out.print(e.toString() + "Solo codigos de tres digitos. >>--> Indicar el codigo: ");
+                    System.out.print(e.toString() + " Solo codigos de tres digitos. >>--> Indicar el codigo: ");
                     codigo = scanner.nextLine();
                     es = codigoDeTresDigitos(codigo);
 
