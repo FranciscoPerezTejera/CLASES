@@ -14,12 +14,18 @@ public class Empleado implements Pagable {
         this.nombre = nombre;
         this.apellido = apellido;
         this.seguridadSocial = seguridadSocial;
+        
     }
-    
     
     @Override
     public double obtenerImportePagable() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // En esta implementación, los empleados no tienen importe pagable.
+        return 0.0;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("%s %s (Seguridad Social: %s)", nombre, apellido, seguridadSocial);
     }
 
     public String getNombre() {

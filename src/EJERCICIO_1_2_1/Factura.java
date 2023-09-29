@@ -3,7 +3,7 @@ package EJERCICIO_1_2_1;
 public class Factura implements Pagable {
 
     private String codigo;
-    private String Descripcion;
+    private String descripcion;
     private int cantidad;
     private double precioPorProducto;
 
@@ -14,7 +14,7 @@ public class Factura implements Pagable {
     public Factura(String codigo, String Descripcion, int cantidad, double precioPorProducto) {
 
         this.codigo = codigo;
-        this.Descripcion = Descripcion;
+        this.descripcion = Descripcion;
         this.cantidad = cantidad;
         this.precioPorProducto = precioPorProducto;
     }
@@ -24,6 +24,12 @@ public class Factura implements Pagable {
 
         return cantidad * precioPorProducto;
 
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("[i]Factura: %n-->Código: %s %n-->Descripción: %s %n-->Cantidad: %d %n-->Precio Por Producto: %.2f ? (Eur) %n-->Importe: %.2f ? (Eur)",
+                codigo, descripcion, cantidad, precioPorProducto, obtenerImportePagable());
     }
 
     public String getCodigo() {
@@ -35,11 +41,11 @@ public class Factura implements Pagable {
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+        this.descripcion = Descripcion;
     }
 
     public int getCantidad() {
@@ -56,14 +62,6 @@ public class Factura implements Pagable {
 
     public void setPrecioPorProducto(double precioPorProducto) {
         this.precioPorProducto = precioPorProducto;
-    }
-    
-    
-
-    @Override
-    public String toString() {
-        
-        return String.format("--> Codigo: ", codigo) + String.format("--> : ", codigo) + String.format("--> Codigo: ", codigo); 
     }
 
 }
