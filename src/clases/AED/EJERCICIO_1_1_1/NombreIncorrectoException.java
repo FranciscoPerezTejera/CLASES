@@ -16,8 +16,6 @@ public class NombreIncorrectoException extends IOException {
     
     public NombreIncorrectoException() {
     
-        
-    
     }
 
     @Override

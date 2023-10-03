@@ -11,7 +11,7 @@ public class Cliente {
     public Cliente(String nombre) {
         this.nombre = nombre;
     }
-    /////////////////
+
     public Cliente(int codigo) {
         this.codigo = codigo;
     }

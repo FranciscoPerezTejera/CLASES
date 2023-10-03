@@ -12,17 +12,17 @@ public class ImprimirPagable {
         Pagable[] objetos = new Pagable[6];
         int i = 0;
         int cantidad = 0;
-        double precioPorProducto, salario;
+        double precioPorProducto = 0, salario;
         boolean es = true;
         boolean esUnNombre = true;
-        String codigo, descripcion, nom, ape, seguridadSocial;
+        String codigo, descripcion, nom, ape, seguridadSocial, tieneLetras;
 
         for (i = 0; i < 3; i++) {
 
             System.out.println("Ingrese los datos de la Factura " + (i + 1));
             System.out.print("Introducir codigo de 3 digitos: ");
             codigo = scanner.nextLine();
-            
+
             try {
 
                 es = codigoDeTresDigitos(codigo);
@@ -43,7 +43,7 @@ public class ImprimirPagable {
 
             }
 
-            System.out.print("Descripción: ");
+            System.out.print("Descripcion del producto: ");
             descripcion = scanner.nextLine();
 
             try {
@@ -66,12 +66,13 @@ public class ImprimirPagable {
 
             }
 
-            System.out.print("Cantidad: ");
+            System.out.print("Cantidad del producto: ");
             cantidad = scanner.nextInt();
 
             try {
 
                 es = esNumeroNegativo(cantidad);
+
                 if (es) {
                     throw new IllegalArgumentException();
                 }
@@ -87,21 +88,21 @@ public class ImprimirPagable {
 
             }
 
-            System.out.print("Precio por Producto: ");
+            System.out.print("Precio por producto: ");
             precioPorProducto = scanner.nextDouble();
-            
+
             try {
 
                 es = esNumeroNegativo(precioPorProducto);
-                
-                if (es)
+
+                if (es) {
                     throw new IllegalArgumentException();
-                
+                }
 
             } catch (IllegalArgumentException e) {
 
                 while (es) {
-                    System.out.print("Atencion, no se permiten numeros negativos. ");
+                    System.out.print("ATENCION, no se permiten numeros negativos. ");
                     System.out.print("Introducir el precio del producto: ");
                     precioPorProducto = scanner.nextDouble();
                     es = esNumeroNegativo(precioPorProducto);
@@ -112,27 +113,28 @@ public class ImprimirPagable {
             objetos[i] = new Factura(codigo, descripcion, cantidad, precioPorProducto);
             scanner.nextLine();
         }
-        
+
         int sys = 1;
-        
+
         for (i = 3; i < objetos.length; i++) {
-            
+
             System.out.println("Ingrese los datos del cliente " + sys);
             System.out.print("Nombre: ");
             nom = scanner.nextLine();
-            
+
             try {
 
                 esUnNombre = esUnNombre(nom);
-                
-                if (!esUnNombre)
+
+                if (!esUnNombre) {
                     throw new IllegalArgumentException();
+                }
 
             } catch (IllegalArgumentException e) {
 
                 while (!esUnNombre) {
 
-                    System.out.println("La cadena no admite números ni sí­mbolos. ");
+                    System.out.println("La cadena no admite numeros ni simbolos. ");
                     System.out.print("--> Introduce el nombre del cliente: ");
                     nom = scanner.nextLine();
                     esUnNombre = esUnNombre(nom);
@@ -144,24 +146,25 @@ public class ImprimirPagable {
             try {
 
                 esUnNombre = esUnNombre(ape);
-                
-                if(!esUnNombre)
+
+                if (!esUnNombre) {
                     throw new IllegalArgumentException();
+                }
 
             } catch (IllegalArgumentException e) {
 
                 while (!esUnNombre) {
 
-                    System.out.println("La cadena no admite números ni sí­mbolos. ");
+                    System.out.println("La cadena no admite numeros ni simbolos. ");
                     System.out.print("--> Introduce el apellido del cliente: ");
                     ape = scanner.nextLine();
                     esUnNombre = esUnNombre(ape);
                 }
             }
-            
+
             System.out.print("Indica numero de la seguridad social con formato XXX-XX-XXXX: ");
             seguridadSocial = scanner.nextLine();
-            
+
             try {
 
                 es = validarSeguridadSocial(seguridadSocial);
@@ -184,22 +187,23 @@ public class ImprimirPagable {
 
             System.out.print("Indicar el salario: ");
             salario = scanner.nextDouble();
-            
+
             try {
-            
+
                 es = esNumeroNegativo(salario);
-                if(es)
+                if (es) {
                     throw new IllegalArgumentException();
-                
-            }catch(IllegalArgumentException e) {
-            
+                }
+
+            } catch (IllegalArgumentException e) {
+
                 while (es) {
-                    System.out.print("Atencion, no se permiten numeros negativos. ");
+                    System.out.print("ATENCION, no se permiten numeros negativos. ");
                     System.out.print("Introducir salario del cliente: ");
                     salario = scanner.nextDouble();
                     es = esNumeroNegativo(salario);
                 }
-                
+
             }
 
             objetos[i] = new EmpleadoAsalariado(nom, ape, seguridadSocial, salario);
@@ -209,7 +213,7 @@ public class ImprimirPagable {
         }
 
         System.out.println("####Facturas y Empleados procesados polimorficamente####");
-        
+
         for (int j = 0; j < objetos.length; j++) {
 
             System.out.println(objetos[j]);
@@ -250,6 +254,5 @@ public class ImprimirPagable {
 
         return false;
     }
-    
 
 }

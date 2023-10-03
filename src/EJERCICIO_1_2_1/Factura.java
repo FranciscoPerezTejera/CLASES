@@ -28,7 +28,7 @@ public class Factura implements Pagable {
     
     @Override
     public String toString() {
-        return String.format("[i]Factura: %n-->Código: %s %n-->Descripción: %s %n-->Cantidad: %d %n-->Precio Por Producto: %.2f ? (Eur) %n-->Importe: %.2f ? (Eur)",
+        return String.format("[i]Factura: %n-->Codigo: %s %n-->Descripcion: %s %n-->Cantidad: %d %n-->Precio Por Producto: %.2f (Eur) %n-->Importe: %.2f (Eur)",
                 codigo, descripcion, cantidad, precioPorProducto, obtenerImportePagable());
     }
 

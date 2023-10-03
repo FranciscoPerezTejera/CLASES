@@ -38,7 +38,7 @@ public class Funciones {
         for (i = 0; i < clientes.length; i++) {
 
             sys = i + 1;
-            System.out.printf("--> Introduce el nombre del cliente n º " + sys + " : ");
+            System.out.printf("--> Introduce el nombre del cliente numero " + sys + ": ");
             clientes[i] = new Cliente(in.nextLine());
 
             try {
@@ -54,9 +54,9 @@ public class Funciones {
 
                 while (!es) {
 
-                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten números ni símbolos. << Pusa ENTER para continuar >>");
+                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten numeros ni si­mbolos. << Pusa ENTER para continuar >>");
                     in.nextLine();
-                    System.out.print("--> Introduce el nombre del cliente n º " + sys);
+                    System.out.print("--> Introduce el nombre del cliente numero " + sys + ": ");
                     clientes[i] = new Cliente(in.nextLine());
                     es = funcion.esUnNOmbre(clientes[i].getNombre());
 
@@ -85,7 +85,7 @@ public class Funciones {
 
                 while (!es) {
 
-                    System.out.print(e.toString() + " " + sys + " Solo códigos entre 100 y 300. >>--> Indicar el código: ");
+                    System.out.print(e.toString() + " " + sys + " Solo codigos entre 100 y 300. >>--> Indicar el codigo: ");
                     code = in.nextInt();
                     es = funcion.entreCienYTresciento(code);
                 }
@@ -102,7 +102,7 @@ public class Funciones {
         for (i = 0; i < estudiantes.length; i++) {
 
             sys = i + 1;
-            System.out.print("--> Introduce el nombre del estudiante n " + sys + " : ");
+            System.out.print("--> Introduce el nombre del estudiante " + sys + ": ");
             estudiantes[i] = new Estudiante(in.nextLine());
             
             try {
@@ -118,9 +118,9 @@ public class Funciones {
 
                 while (!es) {
 
-                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten números ni símbolos. << Pusa ENTER para continuar >>");
+                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten numeros ni si­mbolos. << Pusa ENTER para continuar >>");
                     in.nextLine();
-                    System.out.print("--> Introduce el nombre del estudiante n º " + sys);
+                    System.out.print("--> Introduce el nombre del estudiante numero " + sys + ": ");
                     estudiantes[i] = new Estudiante(in.nextLine());
                     es = funcion.esUnNOmbre(estudiantes[i].getNombre());
 
@@ -130,18 +130,17 @@ public class Funciones {
 
             es = true;
             sys = 0;
-            in.nextLine();
 
         }
         for (i = 0; i < empleados.length; i++) {
 
             sys = i + 1;
-            System.out.print("--> Introduce el nombre del esmpleado n " + sys + " : ");
+            System.out.print("--> Introduce el nombre del esmpleado numero " + sys + ": ");
             empleados[i] = new Empleado(in.nextLine());
             
              try {
 
-                es = funcion.esUnNOmbre(estudiantes[i].getNombre());
+                es = funcion.esUnNOmbre(empleados[i].getNombre());
 
                 if (es == false) {
 
@@ -152,9 +151,9 @@ public class Funciones {
 
                 while (!es) {
 
-                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten números ni símbolos. << Pusa ENTER para continuar >>");
+                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten numeros ni si­mbolos. << Pusa ENTER para continuar >>");
                     in.nextLine();
-                    System.out.print("--> Introduce el nombre del empleado n º " + sys);
+                    System.out.print("--> Introduce el nombre del empleado numero " + sys + ": ");
                     empleados[i] = new Empleado(in.nextLine());
                     es = funcion.esUnNOmbre(empleados[i].getNombre());
 
@@ -164,17 +163,16 @@ public class Funciones {
 
             es = true;
             sys = 0;
-            in.nextLine();
         }
 
         for (i = 0; i < facultativos.length; i++) {
 
             sys = i + 1;
-            System.out.print("--> Introduce el nombre del facultativo n " + sys + " : ");
+            System.out.print("--> Introduce el nombre del facultativo numero " + sys + ": ");
             facultativos[i] = new Facultativo(in.nextLine());
              try {
 
-                es = funcion.esUnNOmbre(estudiantes[i].getNombre());
+                es = funcion.esUnNOmbre(facultativos[i].getNombre());
 
                 if (es == false) {
 
@@ -185,9 +183,9 @@ public class Funciones {
 
                 while (!es) {
 
-                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten números ni símbolos. << Pusa ENTER para continuar >>");
+                    System.out.print(e.toString()+ " [" + sys + "] " + "No se admiten numeros ni si­mbolos. << Pusa ENTER para continuar >>");
                     in.nextLine();
-                    System.out.print("--> Introduce el nombre del facultativo n º " + sys);
+                    System.out.print("--> Introduce el nombre del facultativo numero " + sys + ": ");
                     facultativos[i] = new Facultativo(in.nextLine());
                     es = funcion.esUnNOmbre(facultativos[i].getNombre());
 
@@ -197,9 +195,9 @@ public class Funciones {
 
             es = true;
             sys = 0;
-            in.nextLine();
 
         }
+        in.close();
 
         funcion.imprimirResultado(clientes, estudiantes, empleados, facultativos);
 
@@ -215,7 +213,7 @@ public class Funciones {
 
     public boolean esUnNOmbre(String nombre) throws IOException {
 
-        return nombre.matches("^[A-ZÑa-zñáéíóúÁÉÍÓÚ ]+$");
+        return nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+");
 
     }
 
@@ -239,7 +237,7 @@ public class Funciones {
         for (i = 0; i < c.length; i++) {
 
             sys = i + 1;
-            System.out.println("[" + sys + "]" + "Cliente: " + c[i].getNombre() + ", Código seguro ---[" + c[i].getCodigo() + "]");
+            System.out.println("[" + sys + "]" + "Cliente: " + c[i].getNombre() + ", CÃ³digo seguro ---[" + c[i].getCodigo() + "]");
         }
 
         sys = 0;
